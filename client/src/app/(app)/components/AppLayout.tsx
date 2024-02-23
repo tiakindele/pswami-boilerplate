@@ -36,7 +36,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         {/* Main Container */}
         <div className={`relative w-full min-h-[calc(100vh-4rem)] overflow-y-auto md:ml-64 bg-gray-50 dark:bg-gray-900 dark:text-gray-100 dark:text-bg-900`}>
           {user?.active && children}
-          {!user?.active === false && <InactiveView />}
+          {!user?.active && <InactiveView />}
         </div>
       </div>
 
