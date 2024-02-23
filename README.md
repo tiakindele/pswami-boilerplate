@@ -19,7 +19,7 @@ Install rails dependencies
 
 Install frontend dependencies
 ```bash
- cd frontend && npm install
+ cd client && npm install
 ```
 
 ## Usage
