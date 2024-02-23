@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: :update
   before_action :ensure_user_active, only: :update
 
   def index
