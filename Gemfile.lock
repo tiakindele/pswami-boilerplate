@@ -158,6 +158,7 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
+    pg (1.5.4)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -220,8 +221,6 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
-    sqlite3 (1.6.3-arm64-darwin)
-    sqlite3 (1.6.3-x86_64-linux)
     stripe (10.6.0)
     thor (1.2.2)
     timeout (0.4.0)
@@ -250,13 +249,13 @@ DEPENDENCIES
   jsonapi-serializer
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
+  pg
   pry-nav
   pry-rails
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.6)
   sidekiq
-  sqlite3 (~> 1.4)
   stripe
   tzinfo-data
 
