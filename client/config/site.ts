@@ -4,6 +4,7 @@ export const siteConfig = {
   name: "Next.js",
   description:
     "Beautifully designed components built with Radix UI and Tailwind CSS.",
+  url: "https://ui.shadcn.com",
   mainNav: [
     {
       title: "Home",
