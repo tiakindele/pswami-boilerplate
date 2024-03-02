@@ -36,7 +36,7 @@ export function deviseErrorToMessage(error: Error): string | undefined {
   }
   // Check if `errors` is an array and join the strings
   else if (Array.isArray(response?.data?.errors)) {
-    message = response.data.errors.join(", ");
+    message = response?.data?.errors?.join(", ");
   }
 
   return message;
