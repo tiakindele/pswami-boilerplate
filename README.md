@@ -40,5 +40,5 @@ Start the Rails server.
 
 Start the Next.js server.
 ```bash
- cd frontend && npm run dev
+ cd client && npm run dev
 ```
