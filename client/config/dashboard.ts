@@ -4,9 +4,9 @@ export const dashboardConfig: DashboardConfig = {
   mainNav: [],
   sidebarNav: [
     {
-      title: "Posts",
+      title: "Dashboard",
       href: "/dashboard",
-      icon: "post",
+      icon: "dashboard",
     },
     {
       title: "Billing",
