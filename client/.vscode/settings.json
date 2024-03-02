@@ -1,0 +1,34 @@
+{
+  // Download JSON schema automatically
+  "json.schemaDownload.enable": true,
+
+  // Define editor settings
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  "editor.wrappingIndent": "indent",
+
+  // Fix code on saving
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.format": "explicit"
+  },
+
+  // ESLint settings
+  "eslint.workingDirectories": ["."],
+
+  // Language-specific settings
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[sql]": {
+    "editor.formatOnSave": false
+  },
+
+  // CSS and SCSS settings
+  "css.lint.unknownAtRules": "ignore",
+  "scss.lint.unknownAtRules": "ignore"
+}

@@ -1,6 +1,5 @@
 class Api::UsersController < ApplicationController
   before_action :authenticate_user!, only: :update
-  before_action :ensure_user_active, only: :update
 
   def index
     render json: current_user.as_json(methods: :friendly_plan_name)
