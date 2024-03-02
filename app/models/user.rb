@@ -45,6 +45,8 @@ class User < ApplicationRecord
       'Basic'
     when 'premium_plan'
       'Premium'
+    else
+      'Free Trial'
     end
   end
 

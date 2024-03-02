@@ -51,9 +51,9 @@ export function BillingForm({
   }
 
   const subscriptionPlan: UserSubscriptionPlan = {
-    name: "Free",
-    description: "The free plan includes basic features.",
-    isPro: false,
+    name: user?.friendly_plan_name,
+    description: "This is where you would see a description of your plan.",
+    isPro: !!user?.plan,
     isCanceled: false,
     stripeCurrentPeriodEnd: new Date(),
   }
