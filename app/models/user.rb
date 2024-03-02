@@ -18,6 +18,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable,
          omniauth_providers: %i[google_oauth2]
 
+  after_create :subscribe_to_basic_plan
+
   PLAN = {
     basic_plan: 'price_1OcMSICMi6SN7IlBndQb6J1Y',
     premium_plan: 'price_1OcMTxCMi6SN7IlByfLvYBpO'
@@ -44,5 +46,12 @@ class User < ApplicationRecord
     when 'premium_plan'
       'Premium'
     end
+  end
+
+  private
+
+  def subscribe_to_basic_plan
+    # Use a service to handle this. make the user active after.
+    # Starting point: app/controllers/api/onboarding_controller.rb
   end
 end
