@@ -3,6 +3,7 @@
 import * as React from "react"
 import { usePathname, useSearchParams } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { AxiosError } from "axios"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import { z } from "zod"
@@ -21,6 +22,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Icons } from "@/components/icons"
+import { deviseErrorToMessage } from "@/lib/utils"
 
 import { useSignIn, useSignUp } from "../_hooks/auth"
 
@@ -56,7 +58,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   async function onSubmit(values: FormData) {
     switch (pathname) {
       case "/login": {
-        await login(values, {
+        login(values, {
           onSuccess: (data) => {
             form.reset()
             return toast("Welcome back!", {
@@ -64,15 +66,19 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             })
           },
           onError: (error) => {
-            return toast("Something went wrong.", {
-              description: "Your sign in request failed. Please try again.",
+            const { response } = error as AxiosError<{ error: string }>
+            const message = response?.data?.error
+
+            return toast(deviseErrorToMessage(error) || "Something went wrong.", {
+              description:
+                "If you don't have an account, please sign up. Otherwise, try again.",
             })
           },
         })
         break
       }
       case "/register": {
-        await register(values, {
+        register(values, {
           onSuccess: (data) => {
             form.reset()
             return toast("Welcome!", {
@@ -81,7 +87,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           },
           onError: (error) => {
             return toast("Something went wrong.", {
-              description: "Your sign up request failed. Please try again.",
+              description: deviseErrorToMessage(error) || "Please try again.",
             })
           },
         })

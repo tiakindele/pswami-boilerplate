@@ -23,6 +23,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { toast } from "sonner"
 import { Icons } from "@/components/icons"
+import { deviseErrorToMessage } from "@/lib/utils"
 
 interface UserNameFormProps extends React.HTMLAttributes<HTMLFormElement> {}
 
@@ -44,16 +45,16 @@ export function UserNameForm({ className, ...props }: UserNameFormProps) {
   })
 
   async function onSubmit(data: FormData) {
-    await updateUser({ id: user?.id as number, payload: data }, {
+    updateUser({ id: user?.id as number, payload: data }, {
       onSuccess: () => {
         toast("Success", {
           description: "Your name has been updated.",
         })
         router.refresh()
       },
-      onError: () => {
+      onError: (error) => {
         toast("Something went wrong.", {
-          description: "Your name was not updated. Please try again.",
+          description: deviseErrorToMessage(error) || "Your name was not updated. Please try again.",
         })
       },
     })
